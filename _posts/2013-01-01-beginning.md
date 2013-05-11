@@ -1,10 +1,8 @@
 ---
 layout: post
-category : personal
-tags : [work, english]
+category : en
 title: 2013
 ---
-{% include JB/setup %}
 
 2013 is here!
 
