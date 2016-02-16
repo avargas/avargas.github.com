@@ -10,10 +10,6 @@
   <link rel="stylesheet" type="text/css" href="//fonts.googleapis.com/css?family=Merriweather:300,700,700italic,300italic|Open+Sans:700,400" />
   <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
   <style type="text/css">
-  * {
-    transition: all 0.1s ease-in-out;
-  }
-
   .bg {
     position: fixed;
     left: 0;
@@ -27,6 +23,15 @@
     background-size: cover;
     background-image: url(cover.jpg);
     
+    -webkit-filter: blur(3px);
+    -moz-filter: blur(3px);
+    -o-filter: blur(3px);
+    -ms-filter: blur(3px);
+    filter: blur(3px);
+    transition: all 1s ease-in;
+  }
+
+  .loaded .bg {
     -webkit-filter: blur(1px);
     -moz-filter: blur(1px);
     -o-filter: blur(1px);
@@ -52,6 +57,15 @@
     vertical-align: middle;
   }
 
+  .fade-in {
+    opacity: 0;
+    transition: all 1s ease-in;
+  }
+
+  html.loaded .fade-in {
+    opacity: 1;
+  }
+
   h1 {
     margin: 10px 0 10px 0;
     font-size: 4rem;
@@ -66,20 +80,21 @@
     padding: 0;
   }
 
-  .slinks a {
-    color: rgba(255,255,255,0.8);
-    display: inline-block;
-    padding: 10px;
-  }
+    .slinks li {
+      display: inline;
+      font-size: 2.5rem;
+    }
 
-  .slinks li {
-    display: inline;
-    font-size: 2.5rem;
-  }
+    .slinks a {
+      color: rgba(255,255,255,0.8);
+      display: inline-block;
+      padding: 10px;
+      transition: all 0.1s ease-in-out;
+    }
 
-  .slinks a:hover {
-    transform: scale(1.2)
-  }
+    .slinks a:hover {
+      transform: scale(1.2)
+    }
 
   h2 {
     margin: 0;
@@ -107,44 +122,53 @@
 <body>
   <div class="bg"></div>
   <div class="content">
-    <div class="vertical">
+    <div class="vertical fade-in">
       <h1>Angelo Vargas</h1>
       <h2>Software Developer</h2>
-      <div>
-        <ul class="slinks">
-          <li>
-            <a title="linkedin" href="https://linkedin.com/in/angelovargas" target="_blank">    
-              <i class="fa fa-linkedin"></i>
-            </a>
-          </li>
+      <ul class="slinks">
+        <li>
+          <a title="linkedin" href="https://linkedin.com/in/angelovargas" target="_blank">    
+            <i class="fa fa-linkedin"></i>
+          </a>
+        </li>
 
-          <li>
-            <a title="github" href="https://github.com/avargas" target="_blank">    
-              <i class="fa fa-github"></i>
-            </a>
-          </li>
+        <li>
+          <a title="github" href="https://github.com/avargas" target="_blank">    
+            <i class="fa fa-github"></i>
+          </a>
+        </li>
 
-          <li>
-            <a title="twitter" href="http://twitter.com/trukin" target="_blank">
-              <i class="fa fa-twitter"></i>
-            </a>
-          </li>
+        <li>
+          <a title="twitter" href="http://twitter.com/trukin" target="_blank">
+            <i class="fa fa-twitter"></i>
+          </a>
+        </li>
 
-          <li>
-            <a title="stackoverflow" href="http://stackoverflow.com/users/93321/angelo-vargas" target="_blank">
-              <i class="fa fa-stack-overflow"></i>
-            </a>
-          </li>
+        <li>
+          <a title="stackoverflow" href="http://stackoverflow.com/users/93321/angelo-vargas" target="_blank">
+            <i class="fa fa-stack-overflow"></i>
+          </a>
+        </li>
 
-          <li>
-            <a title="facebook" href="https://www.facebook.com/angelo.d.vargas" target="_blank">
-              <i class="fa fa-facebook"></i>
-            </a>
-          </li>
-        </ul>
-      </div>
+        <li>
+          <a title="facebook" href="https://www.facebook.com/angelo.d.vargas" target="_blank">
+            <i class="fa fa-facebook"></i>
+          </a>
+        </li>
+
+        <li>
+          <a title="email me" href="mailto:angelo@nivler.com" target="_blank">
+            <i class="fa fa-envelope"></i>
+          </a>
+        </li>
+      </ul>
     </div>
   </div>
+  <script>
+  window.onload = function() { 
+    document.documentElement.className += ' loaded';
+  }
+  </script>
 </body>
 </html>
 
